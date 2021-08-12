@@ -27,7 +27,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'library.Library'
+    mainClass = 'library.Main'
 }
 
 run {
@@ -37,5 +37,9 @@ test {
     //we want display the following test events
     testLogging {
         events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
+
+    afterTest { desc, result ->
+        logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
     }
 }

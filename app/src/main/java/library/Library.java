@@ -3,9 +3,9 @@ package library;
 import java.util.*;
 
 public class Library {
-    List<Book> shelf = new ArrayList<Book>();
-    List<User> users = new ArrayList<User>();
-    BorrowCart borrowCart = new BorrowCart();
+    private List<Book> shelf = new ArrayList<Book>();
+    private List<User> users = new ArrayList<User>();
+    private BorrowCart borrowCart = new BorrowCart();
 
     public void printWelcomeMessage(){
         System.out.println("ようこそ図書館システムへ．");
@@ -62,10 +62,5 @@ public class Library {
         this.addBooks();
         this.addUsers();
         this.startBrowsing();
-    }
-
-    public static void main(String[] args) {
-        Library lib = new Library();
-        lib.run();
     }
 }
