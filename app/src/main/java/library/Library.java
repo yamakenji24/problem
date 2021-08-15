@@ -10,6 +10,7 @@ public class Library {
     public void printWelcomeMessage(){
         System.out.println("ようこそ図書館システムへ．");
     }
+
     public void printShelfInfo() {
         for (Book book: shelf) {
             book.printBookInfo();
@@ -35,32 +36,17 @@ public class Library {
     public void addUsers() {
         this.users.add(this.createUser("1", "Yamada"));
     }
-    public void startBrowsing() {
-        this.printShelfInfo();
-        // 仮でid=2の本をレンタルすることにする
-        // 後でリダイレクトで入力できるか確認する
-        Boolean success = this.borrowBook("2");
-        if (success) {
-            System.out.println("レンタルに成功しました");
-        } else {
-            System.out.println("本が見つからなかったみたいです");
-        }
-    }
 
     public boolean borrowBook(String id) {
         for (Book book: shelf) {
             if (Objects.equals(id, book.getID())) {
                 this.borrowCart.borrow(book);
+                System.out.println("レンタルに成功しました");
                 return true;
             }
         }
+        System.out.println("本が見つからなかったみたいです");
         return false;
     }
 
-    public void run() {
-        this.printWelcomeMessage();
-        this.addBooks();
-        this.addUsers();
-        this.startBrowsing();
-    }
 }
