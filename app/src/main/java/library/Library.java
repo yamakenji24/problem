@@ -5,7 +5,6 @@ import java.util.*;
 public class Library {
     private List<Book> shelf = new ArrayList<Book>();
     private List<User> users = new ArrayList<User>();
-    private BorrowCart borrowCart = new BorrowCart();
 
     public void printWelcomeMessage(){
         System.out.println("ようこそ図書館システムへ．");
@@ -24,7 +23,6 @@ public class Library {
 
     public User createUser(String id, String name) {
         User user = new User(id, name);
-        borrowCart.setUser(user);
         return user;
     }
 
@@ -37,10 +35,22 @@ public class Library {
         this.users.add(this.createUser("1", "Yamada"));
     }
 
-    public boolean borrowBook(String id) {
+    public User findUser(String userID) {
+        for (User user: users) {
+            if (Objects.equals(userID, user.getID())) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public boolean borrowBook(String userID, String bookID) {
+        User user = findUser(userID);
+        if (user == null) { return false; }
+
         for (Book book: shelf) {
-            if (Objects.equals(id, book.getID())) {
-                this.borrowCart.borrow(book);
+            if (Objects.equals(bookID, book.getID())) {
+                user.addToCart(book);
                 System.out.println("レンタルに成功しました");
                 return true;
             }

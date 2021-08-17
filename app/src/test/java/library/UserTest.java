@@ -6,11 +6,22 @@ import org.junit.Test;
 
 public class UserTest {
     private String name = "Yamada";
-    User user = new User("1", name);
+    private String userID = "1";
+    User user = new User(userID, name);
 
     @Test
     public void shouldGetName() {
         assertThat(user.getName(), is(name));
+    }
+
+    @Test
+    public void shoudGetID() {
+        assertThat(user.getID(), is(userID));
+    }
+
+    @Test
+    public void bookShouldBeAdded() {
+        
     }
 
     /*@Test

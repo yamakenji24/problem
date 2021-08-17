@@ -10,6 +10,6 @@ public class Main {
         lib.addBooks();
         lib.printShelfInfo();
 
-        lib.borrowBook("2");
+        lib.borrowBook("1", "2");
     }
 }
