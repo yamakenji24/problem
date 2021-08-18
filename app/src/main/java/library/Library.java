@@ -16,8 +16,7 @@ public class Library {
         }
     }
     public Book createBook(String id, String title, String authors, String publisher, Integer publishYear) {
-        Book book = new Book();
-        book.setBook(id, title, authors, publisher, publishYear);
+        Book book = new Book(id, title, authors, publisher, publishYear);
         return book;
     }
 

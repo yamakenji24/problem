@@ -1,7 +1,6 @@
 package library;
 
 interface InterfaceBook {
-    public void setBook(String id, String title, String authors, String publisher, Integer publishYear);
     public void printBookInfo();
     public String getID();
     public String getTitle();
@@ -14,7 +13,7 @@ public class Book implements InterfaceBook {
     private String publisher;
     private Integer publishYear;
 
-    public void setBook(String id, String title, String authors, String publisher, Integer publishYear) {
+    public Book(String id, String title, String authors, String publisher, Integer publishYear) {
         this.id = id;
         this.title = title;
         this.authors = authors;
