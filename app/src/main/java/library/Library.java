@@ -25,13 +25,12 @@ public class Library {
         return user;
     }
 
-    public void addBooks() {
-        this.shelf.add(this.createBook("1", "本のタイトル1", "著者の名前", "出典元", 1997));
-        this.shelf.add(this.createBook("2", "本のタイトル2", "著者の名前", "出典元", 1998));
-        this.shelf.add(this.createBook("3", "本のタイトル3", "著者の名前", "出典元", 1999));
+    public void addBooks(String id, String title, String authors, String publisher, Integer publishYear) {
+        this.shelf.add(this.createBook(id, title, authors, publisher, publishYear));
     }
-    public void addUsers() {
-        this.users.add(this.createUser("1", "Yamada"));
+
+    public void addUsers(String id, String name) {
+        this.users.add(this.createUser(id, name));
     }
 
     public User findUser(String userID) {
