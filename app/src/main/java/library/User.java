@@ -23,4 +23,8 @@ public class User {
     public void addToCart(Book book) {
         this.borrowCart.add(book);
     }
+
+    public List<Book> getCarts() {
+        return this.borrowCart;
+    }
 }
