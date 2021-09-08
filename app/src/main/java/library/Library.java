@@ -20,9 +20,9 @@ public class Library {
         return book;
     }
 
-    public User createUser(String id, String name) {
-        User user = new User(id, name);
-        return user;
+    public Borrower createBorrower(String id, String name) {
+        Borrower borrower = new Borrower(id, name);
+        return borrower;
     }
 
     public void addBooks(String id, String title, String authors, String publisher, Integer publishYear) {
@@ -30,7 +30,7 @@ public class Library {
     }
 
     public void addUsers(String id, String name) {
-        this.users.add(this.createUser(id, name));
+        this.users.add(this.createBorrower(id, name));
     }
 
     public User findUser(String userID) {

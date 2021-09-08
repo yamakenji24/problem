@@ -31,16 +31,12 @@ public class LibraryTest {
         assertThat(actual.size(), is(1));
     }
 
-    @Test public void shouldCreateUser()
+    @Test public void shouldCreateBorrower()
             throws NoSuchFieldException, IllegalAccessException {
         Library lib = new Library();
-        User user = lib.createUser("1", "Yamada");
+        User user = lib.createBorrower("1", "Yamada");
 
-        Field field = user.getClass().getDeclaredField("name");
-        field.setAccessible(true);
-
-        String name = (String)field.get(user);
-        assertThat(name, is("Yamada"));
+        assertThat(user.getName(), is("Yamada"));
     }
 
     @Test public void shouldAddUsers()
